@@ -1,5 +1,4 @@
 
-
 //public final class Pokemon {
 public abstract class Pokemon {
     //private int level;
@@ -9,7 +8,7 @@ public abstract class Pokemon {
 
     private static int pokemonCount = 0;  // 클래스(정적) 변수
 
-    Flyable flyagidble;  // 연관 관계
+    Flyable flyable;  // 연관 관계
 
     public void setFlyable(Flyable flyable) {  // upcast
         this.flyable = flyable;
