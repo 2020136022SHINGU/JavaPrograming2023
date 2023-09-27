@@ -1,10 +1,10 @@
-
 //public final class Pokemon {
 public abstract class Pokemon {
     //private int level;
     protected int level;
     private int hp;
     protected String name;
+    protected int attackRate;
 
     private static int pokemonCount = 0;  // 클래스(정적) 변수
 
@@ -24,12 +24,12 @@ public abstract class Pokemon {
     }
 
     public Pokemon() {
-        System.out.println("부모 클래스의 기본 생성자");
+        //System.out.println("부모 클래스의 기본 생성자");
         pokemonCount++;
     }
 
     public Pokemon(int level, int hp, String name) {
-        System.out.println("부모 클래스의 매개변수 생성자");
+        //System.out.println("부모 클래스의 매개변수 생성자");
         this.level = level;
         this.hp = hp;
         this.name = name;
@@ -52,7 +52,6 @@ public abstract class Pokemon {
         this.hp = hp;
     }
 
-    public abstract void attack();
     public void evolve(){  // 매개변수 제거
         if(this instanceof Pikachu){
             System.out.println("삐까삐까~");
@@ -78,5 +77,14 @@ public abstract class Pokemon {
         System.out.println("레벨 : " + level);
         System.out.println("체력 : " + hp);
         System.out.println("================");
+    }
+
+    public abstract void attack();
+
+    public void attack(Pokemon targetPokemon, String skill){
+        System.out.println(this.name +"이(가) " + targetPokemon.name + "에게 "+ skill +" 공격 시전!");
+        targetPokemon.hp = targetPokemon.hp - this.attackRate;
+        //targetPokemon.hp = this.
+        System.out.println(targetPokemon.name + "의 체력은 " + targetPokemon.hp + "입니다");
     }
 }
